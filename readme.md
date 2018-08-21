@@ -1,1 +1,3 @@
-Express with Passport Authentication
+Lightweight blog framework built on Express/Node
+
+Start: Yarn start
