@@ -2,6 +2,8 @@ var express = require("express");
 var passport = require("passport");
 
 var User = require("./models/user");
+var Post = require("./models/post");
+
 var router = express.Router();
 
 function ensureAuthenticated(req, res, next) {
@@ -15,18 +17,60 @@ function ensureAuthenticated(req, res, next) {
 
 router.use(function(req, res, next) {
   res.locals.currentUser = req.user;
+  res.locals.post = req.post;
   res.locals.errors = req.flash("error");
   res.locals.infos = req.flash("info");
   next();
 });
 
 router.get("/", function(req, res, next) {
-  User.find()
+  Post.find()
   .sort({ createdAt: "descending" })
-  .exec(function(err, users) {
+  .exec(function(err, posts) {
     if (err) { return next(err); }
-    res.render("index", { users: users });
+   res.render("index", { posts: posts });
   });
+});
+
+// New Post Form
+router.get('/post', ensureAuthenticated, function(req, res, next) {
+  res.render('post');
+});
+
+router.post('/post', function(req, res, next) {
+  new Post({title: req.body.title, author: req.body.author, body: req.body.body }).save();
+  res.redirect('/');
+});
+
+// Display Post
+router.get("/posts/:id", function(req, res, next) {
+  Post.findOne({ _id: req.params.id }, function(err, post) {
+    if (err) { return next(err); }
+    if (!post) { return next(404); }
+    res.render("posts", { post: post });
+  });
+});
+
+// Edit Post
+router.get("/edit-post/:id", ensureAuthenticated, function(req, res, next) {
+  Post.findOne({_id: req.params.id }, function(err, post) {
+    if(err) { return next(err); }
+    if(!post) { return next(404); }
+    res.render('edit-post', { post: post});
+  })
+});
+
+router.post("/edit-post/:id", ensureAuthenticated, function(req, res, next) {
+  console.log(req.params)
+  Post.update({_id: req.params.id }, {
+    title: req.body.title,
+    body: req.body.body
+  }, function(err, post) {
+    if(err) { return next(err); }
+    if(!post) { return next(404); }
+    res.redirect('/');
+  });
+
 });
 
 router.get("/login", function(req, res) {

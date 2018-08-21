@@ -1,12 +1,14 @@
-{{#each users}}
+{{#each posts}}
 <div class="panel panel-default">
   <div class="panel-heading">
-    <a href="/users/{{this.username}}">
-      {{this.name}}
+    <a href="/posts/{{this.id}}">
+      {{title}}
     </a>
+    <p>{{author}}</p>
+    <p>{{body}}</p>
   </div>
 </div>
-{{#if this.bio}}
+<!-- {{#if this.bio}}
   <div clas="panel-body">{{this.bio}}</div>
-{{/if}}
+{{/if}} -->
 {{/each}}
