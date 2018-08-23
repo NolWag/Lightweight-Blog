@@ -1,7 +1,35 @@
-body {
-  background-color: red;
+a {
+  text-decoration: none;
+  color: #000;
 }
 
-.bodyClass {
-  color: white;
+.body {
+  margin: 0 10%;
+}
+
+.login-container {
+  display: flex;
+}
+
+.login {
+  list-style-type: none;
+  display: inline-flex;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  border: .5px solid #000;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+.post-title {
+  margin: 0;
+  text-align: left;
+}
+
+.author-title {
+  margin: 0;
 }

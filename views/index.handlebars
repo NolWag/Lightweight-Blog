@@ -1,14 +1,9 @@
 {{#each posts}}
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h1><a href="/posts/{{this.id}}">
+  <div class="post-container">
+    <h1 class="post-title"><a href="/posts/{{this.id}}">
       {{title}}
     </a></h1>
-    <p>{{author}}</p>
-    <p>{{body}}</p>
+    <h3 class="author-title">{{author}}</h3>
+    <p class="body-preview">{{body}}</p>
   </div>
-</div>
-<!-- {{#if this.bio}}
-  <div clas="panel-body">{{this.bio}}</div>
-{{/if}} -->
 {{/each}}

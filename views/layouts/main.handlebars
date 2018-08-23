@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/../../public/css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
     <meta charset="utf-8">
     <title>Lightweight Blog</title>
 </head>
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Blog</a>
+<div class="header">
+  <div class="login-container">
+    <div class="logo">
+      <a href="/">Blog</a>
     </div>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="login">
       {{#currentUser}}
       <li>
         <a href="/edit">
@@ -26,12 +26,7 @@
     </ul>
   </div>
 </div>
-<div class="container">
-
-
-
-
+<div class="body">
     {{{body}}}
-
 </div>
 </html>
