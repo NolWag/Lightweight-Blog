@@ -1,3 +1,65 @@
+/* Google Font Imports */
+/* Type */
+/* Colors */
+/*================================*/
+body {
+  margin: 0; }
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
+.row {
+  display: flex; }
+
+.form {
+  display: flex;
+  flex-direction: column; }
+
+.title {
+  font-family: "Raleway", sans-serif; }
+
+.sub-title {
+  font-family: "Roboto Slab", serif; }
+
+/* Margin Top */
+.mt-sm {
+  margin-top: 1em; }
+
+.mt-md {
+  margin-top: 2.5em; }
+
+.mt-lg {
+  margin-top: 5em; }
+
+/* Margin Bottom */
+.mb-sm {
+  margin-bottom: 1em; }
+
+.mb-md {
+  margin-bottom: 2.5em; }
+
+.mb-lg {
+  margin-bottom: 5em; }
+
+/* Font Size */
+.sm-font {
+  font-size: 0.5em; }
+
+.md-font {
+  font-size: 1em; }
+
+.lg-font {
+  font-size: 2em; }
+
+/* Font Colors */
+.prim-color {
+  color: #000; }
+
+.sec-color {
+  color: #fff; }
+
 a {
   text-decoration: none;
   outline: 0;
@@ -18,7 +80,9 @@ body {
 .logo {
   padding: 1em;
   font-size: 2em;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  color: #555; }
 
 .btn {
   background-color: #eaeaea;

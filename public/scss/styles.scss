@@ -1,6 +1,114 @@
 $mainFont: 'Raleway', sans-serif;
 $secondFont: 'Roboto Slab', serif;
 
+/* Google Font Imports */
+
+$primary-color: #000;
+$secondary-color: #fff;
+
+/* Type */
+
+$small-font: .5em;
+$medium-font: 1em;
+$large-font: 2em;
+
+
+$margin-top-sm: 1em;
+$margin-top-md: 2.5em;
+$margin-top-lg: 5em;
+
+$margin-bottom-sm: 1em;
+$margin-bottom-md: 2.5em;
+$margin-bottom-lg: 5em;
+
+
+
+/* Colors */
+$font-primary: #fff;
+$font-secondary: #000;
+
+
+/*================================*/
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: $mainFont;
+}
+
+.sub-title {
+  font-family: $secondFont;
+}
+/* Margin Top */
+
+.mt-sm {
+  margin-top: $margin-top-sm;
+}
+
+.mt-md {
+  margin-top: $margin-top-md;
+}
+
+.mt-lg {
+  margin-top: $margin-top-lg;
+}
+
+
+/* Margin Bottom */
+
+.mb-sm {
+  margin-bottom: $margin-bottom-sm;
+}
+.mb-md {
+  margin-bottom: $margin-bottom-md;
+}
+.mb-lg {
+  margin-bottom: $margin-bottom-lg;
+}
+
+/* Font Size */
+
+.sm-font {
+  font-size: $small-font;
+}
+
+.md-font {
+  font-size: $medium-font;
+}
+
+.lg-font {
+  font-size: $large-font;
+}
+
+/* Font Colors */
+
+.prim-color {
+  color: $primary-color;
+}
+
+.sec-color {
+  color: $secondary-color;
+}
+
+/// END OF UTILITIES ////
+
 a {
   text-decoration: none;
   outline: 0;
@@ -26,6 +134,8 @@ body {
   padding: 1em;
   font-size: 2em;
   text-transform: uppercase;
+  font-family: $mainFont;
+  color: #555;
 }
 
 .btn {
