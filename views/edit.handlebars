@@ -1,11 +1,10 @@
 <div class="post__container__single">
-<h1>Edit your profile</h1>
-
-<form action="/edit" method="post">
+<h1 class="post-title">Edit your profile</h1>
+<form class="edit__form" action="/edit" method="post">
   {{#currentUser}}
-  <input name="displayname" type="text" class="form-control" placeholder="Display name" value="{{name}}">
-  <textarea name="bio" class="form-control" placeholder="Tell us about yourself!">{{bio}}</textarea>
-  <input type="submit" value="Update" class="btn btn-primary btn-block">
+  <input class="edit__title" name="displayname" type="text" placeholder="Display name" value="{{name}}">
+  <textarea name="bio" class="edit__body" placeholder="Tell us about yourself!">{{bio}}</textarea>
+  <input type="submit" value="Update" class="btn">
   {{/currentUser}}
 </form>
 </div>

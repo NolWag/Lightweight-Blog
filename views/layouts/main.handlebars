@@ -15,15 +15,15 @@
     </div>
     <ul class="login">
       {{#currentUser}}
-      <li class="nav--item btn"><a href="/post">New Post</a></li>
-      <li class="nav--item btn"><a href="/logout">Log out</a></li>
-      <li class="nav--item btn"><a href="/edit">Admin</a></li>
+      <a href="/post"><li class="nav--item btn">New Post</li></a>
+      <a href="/logout"><li class="nav--item btn">Log out</li></a>
+      <a href="/edit"><li class="nav--item btn">Admin</li></a>
       <li class="nav--item admin--name">
           Hello, {{name}}
       </li>
       {{else}}
-        <li class="nav--item btn"><a href="/login">Log in</a></li>
-        <li class="nav--item btn"><a href="/signup">Sign up</a></li>
+        <a href="/login"><li class="nav--item btn">Log in</li></a>
+        <a href="/signup"><li class="nav--item btn">Sign up</li></a>
       {{/currentUser}}
     </ul>
   </div>

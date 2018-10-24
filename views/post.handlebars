@@ -1,6 +1,8 @@
-<form action="/post" method="POST">
-  <input type="text" placeholder="Title" name="title"/>
-  <input type="text" placeholder="Author" name="author"/>
-  <textarea type="text" placeholder="Start Typing Here..." name="body"></textarea>
-  <button type="submit">Submit</button>
+<div class="post__container__single">
+  <h1 class="post-title">New Post</h1>
+<form class="edit__form" action="/post" method="POST">
+  <input class="edit__title" type="text" placeholder="Title" name="title"/>
+  <input class="edit__title" type="text" placeholder="Author" name="author"/>
+  <textarea class="edit__body" type="text" placeholder="Start Typing Here..." name="body"></textarea>
+  <input class="btn" type="submit" value="Submit">
 </form>
