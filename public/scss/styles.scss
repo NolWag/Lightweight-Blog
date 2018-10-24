@@ -1,3 +1,119 @@
-body {
-  background-color: red;
+$mainFont: 'Raleway', sans-serif;
+$secondFont: 'Roboto Slab', serif;
+
+a {
+  text-decoration: none;
+  outline: 0;
+  color: #000;
 }
+
+body {
+  margin: 0;
+}
+
+.mb-lg {
+  margin-bottom: 5em;
+}
+
+.main {
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.logo {
+  padding: 1em;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+.btn {
+  background-color: #eaeaea;
+  padding: 1em 2em;
+  border: #e0e0e0 solid 3px;
+  color: #000;
+
+  &:hover {
+    background-color: #dedede;
+  }
+}
+
+.nav--item {
+  font-family: $secondFont;
+  font-size: 1.2em;
+}
+
+.admin--name {
+  padding: 1em 2em;
+}
+
+.login-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login {
+  list-style-type: none;
+  display: inline-flex;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  margin: 1em 0;
+  background-color: #f4d6d6;
+  width: 500px;
+  &:hover {
+    background-color: #ffe1e1;
+    transform: scale(.990);
+    transition: .25s;
+    transition-timing-function: ease-in;
+  }
+
+}
+
+.post-title {
+  margin: 0;
+  color:#666;
+  text-align: left;
+  font-size: 2em;
+  font-family: $mainFont;
+}
+
+.author-title {
+  margin: 0;
+  font-family: $secondFont;
+  color: #555;
+  float: right;
+  bottom: 0;
+}
+
+.body-preview {
+  font-family: $secondFont;
+  color: #555;
+}
+
+.author-title::before {
+  content: 'Author: ';
+}
+
+.post__container__single {
+  margin: 4em;
+}
+
+.edit__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit__title {
+  margin: 1em 0;
+}
+.edit__body {
+  margin: 1em 0;
+  min-height: 15em;
+}
+
+.edit__btn {}

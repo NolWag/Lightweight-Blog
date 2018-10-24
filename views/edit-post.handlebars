@@ -1,8 +1,10 @@
-<h1>Edit</h1>
+<div class="post__container__single">
+<h1 class="post-title">Edit</h1>
   {{#post}}
-  <form action="/edit-post/{{this.id}}" method="post">
-  <input name="title" type="text" class="form-control" placeholder="Title" value="{{this.title}}">
-  <textarea name="body" class="form-control" placeholder="Start typing here...">{{body}}</textarea>
-  <input type="submit" value="Update" class="btn btn-primary btn-block">
+  <form class="edit__form" action="/edit-post/{{this.id}}" method="post">
+  <input name="title" type="text" class="edit__title" placeholder="Title" value="{{this.title}}">
+  <textarea name="body" class="edit__body" placeholder="Start typing here...">{{body}}</textarea>
+  <input type="submit" value="Update" class="btn edit__btn">
 </form>
 {{/post}}
+</div>

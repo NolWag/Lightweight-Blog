@@ -2,6 +2,9 @@
 <html>
 <head>
   <link rel="stylesheet" href="/css/styles.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:500|Roboto+Slab:300" rel="stylesheet">
+
     <meta charset="utf-8">
     <title>Lightweight Blog</title>
 </head>
@@ -12,21 +15,18 @@
     </div>
     <ul class="login">
       {{#currentUser}}
-      <li>
-        <a href="/edit">
+      <li class="nav--item btn"><a href="/post">New Post</a></li>
+      <li class="nav--item btn"><a href="/logout">Log out</a></li>
+      <li class="nav--item btn"><a href="/edit">Admin</a></li>
+      <li class="nav--item admin--name">
           Hello, {{name}}
-        </a>
       </li>
-      <li><a href="/logout">Log out</a></li>
-      <li><a href="/post">New Post</a></li>
       {{else}}
-        <li><a href="/login">Log in</a></li>
-        <li><a href="/signup">Sign up</a></li>
+        <li class="nav--item btn"><a href="/login">Log in</a></li>
+        <li class="nav--item btn"><a href="/signup">Sign up</a></li>
       {{/currentUser}}
     </ul>
   </div>
 </div>
-<div class="body">
     {{{body}}}
-</div>
 </html>

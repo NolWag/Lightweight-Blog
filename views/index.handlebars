@@ -1,9 +1,13 @@
+<div class="main">
 {{#each posts}}
   <div class="post-container">
-    <h1 class="post-title"><a href="/posts/{{this.id}}">
+    <a  href="/posts/{{this.id}}">
+    <div class="post-title">
       {{title}}
-    </a></h1>
-    <h3 class="author-title">{{author}}</h3>
+    </div>
     <p class="body-preview">{{body}}</p>
+    <h3 class="author-title">{{author}}</h3>
+  </a>
   </div>
 {{/each}}
+</div>
