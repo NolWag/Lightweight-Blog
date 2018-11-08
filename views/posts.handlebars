@@ -1,8 +1,9 @@
-{{#post}}
+{{#response}}
 <div class="post__container__single">
 <h1 class="post-title">{{title}}</h1>
-<p class="body-preview mb-lg">{{body}}</p>
+<img src="{{image.src}}" />
+<p class="body-preview mb-lg">{{body_html}}</p>
 <h3 class="author-title">{{author}}</h3>
 <a href="/edit-post/{{this.id}}" class="btn">Edit Post</a>
 </div>
-{{/post}}
+{{/response}}
