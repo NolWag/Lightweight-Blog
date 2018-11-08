@@ -138,9 +138,6 @@ body {
   font-family: "Roboto Slab", serif;
   color: #555; }
 
-.author-title::before {
-  content: 'Author: '; }
-
 .post__container__single {
   margin: 4em; }
 
@@ -154,3 +151,6 @@ body {
 .edit__body {
   margin: 1em 0;
   min-height: 15em; }
+
+.post__img {
+  width: 200px; }

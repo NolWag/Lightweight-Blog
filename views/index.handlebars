@@ -1,12 +1,11 @@
 <div class="main">
-{{#each posts}}
+{{#each response}}
   <div class="post-container">
-    <a  href="/posts/{{this.id}}">
+    <a href="/posts/{{this.id}}">
     <div class="post-title">
       {{title}}
     </div>
-    <p class="body-preview">{{body}}</p>
-    <h3 class="author-title">{{author}}</h3>
+    <img class="post__img" src="{{image.src}}"/>
   </a>
   </div>
 {{/each}}

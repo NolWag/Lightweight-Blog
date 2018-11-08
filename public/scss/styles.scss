@@ -205,10 +205,6 @@ body {
   color: #555;
 }
 
-.author-title::before {
-  content: 'Author: ';
-}
-
 .post__container__single {
   margin: 4em;
 }
@@ -227,3 +223,7 @@ body {
 }
 
 .edit__btn {}
+
+.post__img {
+  width: 200px;
+}

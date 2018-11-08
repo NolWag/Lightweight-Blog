@@ -1,5 +1,6 @@
 var express = require("express");
 var passport = require("passport");
+var axios = require("axios");
 
 var User = require("./models/user");
 var Post = require("./models/post");
@@ -23,12 +24,22 @@ router.use(function(req, res, next) {
   next();
 });
 
+
 router.get("/", function(req, res, next) {
-  Post.find()
-  .sort({ createdAt: "descending" })
-  .exec(function(err, posts) {
-    if (err) { return next(err); }
-   res.render("index", { posts: posts });
+  // Post.find()
+  // .sort({ createdAt: "descending" })
+  // .exec(function(err, posts) {
+  //   if (err) { return next(err); }
+  //  res.render("index", { posts: posts });
+  // });
+
+  axios.get('https://b08226d9a3b5dbfaa77c792bb05b6275:2987a4cf861bc27875ce05633d790465@goat-gloves-2.myshopify.com/admin/products.json')
+  .then(function(response) {
+    console.log(response.data.products);
+    res.render('index', { response: response.data.products })
+  })
+  .catch(function(error) {
+    console.log(error);
   });
 });
 
@@ -44,6 +55,8 @@ router.post('/post', function(req, res, next) {
 
 // Display Post
 router.get("/posts/:id", function(req, res, next) {
+
+  //
   Post.findOne({ _id: req.params.id }, function(err, post) {
     if (err) { return next(err); }
     if (!post) { return next(404); }
