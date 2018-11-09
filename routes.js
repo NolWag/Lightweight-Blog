@@ -28,12 +28,6 @@ router.use(function(req, res, next) {
 
 
 router.get("/", function(req, res, next) {
-  // Post.find()
-  // .sort({ createdAt: "descending" })
-  // .exec(function(err, posts) {
-  //   if (err) { return next(err); }
-  //  res.render("index", { posts: posts });
-  // });
 
   axios.get('https://' + API + '@goat-gloves-2.myshopify.com/admin/products.json')
   .then(function(response) {
@@ -59,20 +53,12 @@ router.get("/posts/:id", function(req, res, next) {
 
     axios.get('https://' + API + '@goat-gloves-2.myshopify.com/admin/products/' + req.params.id + '.json')
     .then(function(response) {
-      console.log(response.data.product)
       res.render('posts', { response: response.data.product })
     })
     .catch(function(error) {
       console.log(error);
     });
-  });
-
-
-  // Post.findOne({ _id: req.params.id }, function(err, post) {
-  //   if (err) { return next(err); }
-  //   if (!post) { return next(404); }
-  //   res.render("posts", { post: post });
-  // });
+});
 
 router.delete("/edit-post/:id", function(req, res, next) {
   Post.deleteOne({ _id: req.params.id }, function(err, post) {
@@ -84,24 +70,48 @@ router.delete("/edit-post/:id", function(req, res, next) {
 
 
 // Edit Post
-router.get("/edit-post/:id", ensureAuthenticated, function(req, res, next) {
-  Post.findOne({_id: req.params.id }, function(err, post) {
-    if(err) { return next(err); }
-    if(!post) { return next(404); }
-    res.render('edit-post', { post: post});
+router.get("/edit-post/:id", /*ensureAuthenticated,*/ function(req, res, next) {
+
+  axios.get('https://' + API + '@goat-gloves-2.myshopify.com/admin/products/' + req.params.id + '.json')
+  .then(function(response) {
+    res.render('edit-post', { response: response.data.product })
   })
+  .catch(function(error) {
+    console.log(error);
+  });
+
+  // Post.findOne({_id: req.params.id }, function(err, post) {
+  //   if(err) { return next(err); }
+  //   if(!post) { return next(404); }
+  //   res.render('edit-post', { post: post});
+  // })
 });
 
-router.post("/edit-post/:id", ensureAuthenticated, function(req, res, next) {
-  console.log(req.params)
-  Post.update({_id: req.params.id }, {
-    title: req.body.title,
-    body: req.body.body
-  }, function(err, post) {
-    if(err) { return next(err); }
-    if(!post) { return next(404); }
+router.post("/edit-post/:id", /*ensureAuthenticated,*/ function(req, res, next) {
+
+  axios.put('https://' + API + '@goat-gloves-2.myshopify.com/admin/products/' + req.params.id + '.json', {
+      "product": {
+        "id": req.params.id,
+        "title": req.body.title,
+      }
+  })
+  .then(function(response) {
+    //console.log(response.data.product)
     res.redirect('/');
+    //res.render('edit-post', { response: response.data.product })
+  })
+  .catch(function(error) {
+    console.log(error);
   });
+
+  // Post.update({_id: req.params.id }, {
+  //   title: req.body.title,
+  //   body: req.body.body
+  // }, function(err, post) {
+  //   if(err) { return next(err); }
+  //   if(!post) { return next(404); }
+  //   res.redirect('/');
+  // });
 });
 
 
