@@ -71,9 +71,9 @@ router.delete("/edit-post/:id", function(req, res, next) {
 
 // Edit Post
 router.get("/edit-post/:id", /*ensureAuthenticated,*/ function(req, res, next) {
-
   axios.get('https://' + API + '@goat-gloves-2.myshopify.com/admin/products/' + req.params.id + '.json')
   .then(function(response) {
+    console.log(response)
     res.render('edit-post', { response: response.data.product })
   })
   .catch(function(error) {

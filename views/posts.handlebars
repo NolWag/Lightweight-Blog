@@ -2,8 +2,12 @@
 <div class="post__container__single">
 <h1 class="post-title">{{title}}</h1>
 <img src="{{image.src}}" />
-<p class="body-preview mb-lg">{{body_html}}</p>
-<h3 class="author-title">{{author}}</h3>
+<p>{{body_html}}</p>
+{{#each variants}}
+<p>SKU:{{sku}}</p>
+<p>${{price}}</p>
+<p>{{weight}}LB</p>
+{{/each}}
 <a href="/edit-post/{{this.id}}" class="btn">Edit Post</a>
 </div>
 {{/response}}
