@@ -1,12 +1,17 @@
 <div class="main">
 {{#each response}}
-  <div class="post-container">
-    <a href="/posts/{{this.id}}">
-    <div class="post-title">
+  <div class="product__container">
+    <a href="/product/{{this.id}}">
+    <div class="product__title">
       {{title}}
     </div>
     <img class="post__img" src="{{image.src}}"/>
   </a>
   </div>
 {{/each}}
+<div class="product__container">
+  <a href="/post">
+  <p class="add-product__btn">+</p>
+</a>
+</div>
 </div>

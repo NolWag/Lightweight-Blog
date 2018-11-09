@@ -68,9 +68,6 @@ a {
 body {
   margin: 0; }
 
-.mb-lg {
-  margin-bottom: 5em; }
-
 .main {
   margin: 0;
   display: flex;
@@ -107,40 +104,6 @@ body {
   list-style-type: none;
   display: inline-flex; }
 
-.post-container {
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
-  margin: 1em 0;
-  background-color: #f4d6d6;
-  width: 500px; }
-  .post-container:hover {
-    background-color: #ffe1e1;
-    transform: scale(0.99);
-    transition: .25s;
-    transition-timing-function: ease-in; }
-
-.post-title {
-  margin: 0;
-  color: #666;
-  text-align: left;
-  font-size: 2em;
-  font-family: "Raleway", sans-serif; }
-
-.author-title {
-  margin: 0;
-  font-family: "Roboto Slab", serif;
-  color: #555;
-  float: right;
-  bottom: 0; }
-
-.body-preview {
-  font-family: "Roboto Slab", serif;
-  color: #555; }
-
-.post__container__single {
-  margin: 4em; }
-
 .edit__form {
   display: flex;
   flex-direction: column; }
@@ -154,3 +117,17 @@ body {
 
 .post__img {
   width: 200px; }
+
+.product__container {
+  background-color: #eee;
+  width: 200px;
+  height: 200px;
+  margin: 2em; }
+
+.product__title {
+  text-align: center; }
+
+.add-product__btn {
+  text-align: center;
+  margin: 45% auto;
+  font-weight: bold; }
