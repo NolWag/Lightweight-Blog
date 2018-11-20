@@ -7,7 +7,7 @@ var Post = require("./models/post");
 
 var router = express.Router();
 
-var API = 'b08226d9a3b5dbfaa77c792bb05b6275:2987a4cf861bc27875ce05633d790465';
+var API = '40cb532ba2293311d7e3464365c136c4:f8f45c4c9b4703c5e4362df210aa7230';
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -29,7 +29,7 @@ router.use(function(req, res, next) {
 
 router.get("/", function(req, res, next) {
 
-  axios.get('https://' + API + '@goat-gloves-2.myshopify.com/admin/products.json')
+  axios.get('https://' + API + '@insta-ecom.myshopify.com/admin/products.json')
   .then(function(response) {
     res.render('index', { response: response.data.products })
   })
@@ -39,11 +39,11 @@ router.get("/", function(req, res, next) {
 });
 
 // New Post Form
-router.get('/post', ensureAuthenticated, function(req, res, next) {
+router.get('/add-product', /*ensureAuthenticated,*/ function(req, res, next) {
   res.render('post');
 });
 
-router.post('/post', function(req, res, next) {
+router.post('/add-product', function(req, res, next) {
   new Post({title: req.body.title, author: req.body.author, body: req.body.body }).save();
   res.redirect('/');
 });
@@ -51,7 +51,7 @@ router.post('/post', function(req, res, next) {
 // Display Post
 router.get("/product/:id", function(req, res, next) {
 
-    axios.get('https://' + API + '@goat-gloves-2.myshopify.com/admin/products/' + req.params.id + '.json')
+    axios.get('https://' + API + '@insta-ecom.myshopify.com/admin/products/' + req.params.id + '.json')
     .then(function(response) {
       res.render('posts', { response: response.data.product })
     })
@@ -71,7 +71,7 @@ router.delete("/edit-post/:id", function(req, res, next) {
 
 // Edit Post
 router.get("/edit-product/:id", /*ensureAuthenticated,*/ function(req, res, next) {
-  axios.get('https://' + API + '@goat-gloves-2.myshopify.com/admin/products/' + req.params.id + '.json')
+  axios.get('https://' + API + '@insta-ecom.myshopify.com/admin/products/' + req.params.id + '.json')
   .then(function(response) {
     console.log(response)
     res.render('edit-post', { response: response.data.product })
@@ -89,7 +89,7 @@ router.get("/edit-product/:id", /*ensureAuthenticated,*/ function(req, res, next
 
 router.post("/edit-product/:id", /*ensureAuthenticated,*/ function(req, res, next) {
 
-  axios.put('https://' + API + '@goat-gloves-2.myshopify.com/admin/products/' + req.params.id + '.json', {
+  axios.put('https://' + API + '@insta-ecom.myshopify.com/admin/products/' + req.params.id + '.json', {
       "product": {
         "id": req.params.id,
         "title": req.body.title,
@@ -175,6 +175,7 @@ router.get("/edit", ensureAuthenticated, function(req, res) {
 router.post("/edit", ensureAuthenticated, function(req, res, next) {
   req.user.displayName = req.body.displayname;
   req.user.bio = req.body.bio;
+  req.user.store = req.body.store;
   req.user.save(function(err) {
     if (err) {
       next(err);

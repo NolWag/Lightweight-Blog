@@ -3,6 +3,12 @@
   {{#response}}
   <form class="edit__form" action="/edit-product/{{this.id}}" method="post">
   <input name="title" type="text" class="edit__title" placeholder="Title" value="{{this.title}}">
+  <textarea>{{body_html}}</textarea>
+  {{#each variants}}
+  <input value="{{sku}}"/>
+  <input value="{{price}}"/>
+  <input value="{{weight}}"/>
+  {{/each}}
   <input type="submit" value="Update" class="btn edit__btn">
 </form>
 {{/response}}
