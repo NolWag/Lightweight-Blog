@@ -39,7 +39,7 @@ router.get("/", function(req, res, next) {
 });
 
 // New Post Form
-router.get('/add-product', /*ensureAuthenticated,*/ function(req, res, next) {
+router.get('/add-product', /*ensureAuthenticated*/ function(req, res, next) {
   res.render('post');
 });
 
@@ -70,7 +70,7 @@ router.delete("/edit-post/:id", function(req, res, next) {
 
 
 // Edit Post
-router.get("/edit-product/:id", /*ensureAuthenticated,*/ function(req, res, next) {
+router.get("/edit-product/:id", /*ensureAuthenticated*/ function(req, res, next) {
   axios.get('https://' + API + '@insta-ecom.myshopify.com/admin/products/' + req.params.id + '.json')
   .then(function(response) {
     console.log(response)
@@ -87,7 +87,7 @@ router.get("/edit-product/:id", /*ensureAuthenticated,*/ function(req, res, next
   // })
 });
 
-router.post("/edit-product/:id", /*ensureAuthenticated,*/ function(req, res, next) {
+router.post("/edit-product/:id", /*ensureAuthenticated*/ function(req, res, next) {
 
   axios.put('https://' + API + '@insta-ecom.myshopify.com/admin/products/' + req.params.id + '.json', {
       "product": {

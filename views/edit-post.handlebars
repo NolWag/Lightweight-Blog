@@ -2,11 +2,16 @@
 <h1 class="post-title">Edit</h1>
   {{#response}}
   <form class="edit__form" action="/edit-product/{{this.id}}" method="post">
+    <label>Title</label>
   <input name="title" type="text" class="edit__title" placeholder="Title" value="{{this.title}}">
+  <label>Description</label>
   <textarea>{{body_html}}</textarea>
   {{#each variants}}
+  <label>SKU</label>
   <input value="{{sku}}"/>
+  <label>Price</label>
   <input value="{{price}}"/>
+  <label>Weight(lbs)</label>
   <input value="{{weight}}"/>
   {{/each}}
   <input type="submit" value="Update" class="btn edit__btn">

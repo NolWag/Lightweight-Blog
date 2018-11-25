@@ -2,18 +2,16 @@
 <html>
 <head>
   <link rel="stylesheet" href="/css/styles.css">
-
   <link href="https://fonts.googleapis.com/css?family=Raleway:500|Roboto+Slab:300" rel="stylesheet">
-
     <meta charset="utf-8">
-    <title>Lightweight Store</title>
+    <title>Store</title>
 </head>
 <div class="header">
   <div class="login-container">
       <a class="logo" href="/">Store</a>
     <ul class="login">
       {{#currentUser}}
-      <a href="/post"><li class="nav--item btn">New Post</li></a>
+      <a href="/add-product"><li class="nav--item btn">Add Product</li></a>
       <a href="/logout"><li class="nav--item btn">Log out</li></a>
       <a href="/edit"><li class="nav--item btn">Admin</li></a>
       <li class="nav--item admin--name">

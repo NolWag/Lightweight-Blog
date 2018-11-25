@@ -119,12 +119,13 @@ body {
   width: 200px; }
 
 .product__container {
-  background-color: #eee;
-  width: 200px;
-  height: 200px;
-  margin: 2em; }
+  margin: 2em;
+  max-width: 250px; }
 
 .product__title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
   text-align: center; }
 
 .add-product__btn {
