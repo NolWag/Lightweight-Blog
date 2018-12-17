@@ -29,9 +29,18 @@ router.use(function(req, res, next) {
 
 router.get("/", function(req, res, next) {
 
-  axios.get('https://' + API + '@insta-ecom.myshopify.com/admin/products.json')
+  axios.get('https://' + API + '@insta-ecom.myshopify.com/admin/products.json/')
   .then(function(response) {
-    res.render('index', { response: response.data.products })
+    //res.render('index', { response: response.data.products })
+    //console.log(response.data.products);
+    var newData = [];
+    for(var i=0;i < response.data.products.length; i++) {
+      if(response.data.products[i].tags === "test") {
+        //console.log(response.data.products[i], 'here');
+        newData.push(response.data.products[i]);
+      }
+    }
+    res.render('index', { response: newData });
   })
   .catch(function(error) {
     console.log(error);
@@ -44,8 +53,34 @@ router.get('/add-product', /*ensureAuthenticated*/ function(req, res, next) {
 });
 
 router.post('/add-product', function(req, res, next) {
-  new Post({title: req.body.title, author: req.body.author, body: req.body.body }).save();
-  res.redirect('/');
+  // new Post(
+  //   {
+  //     title: req.body.title,
+  //     author: req.body.author,
+  //     body: req.body.body,
+  //     sku: req.body.sku,
+  //     price: req.body.price,
+  //     weight: req.body.weight
+  //   }
+  // ).save();
+
+  axios.post('https://' + API + '@insta-ecom.myshopify.com/admin/products.json/',{
+      product: {
+        title: req.body.title,
+        body_html: req.body.body,
+        sku: req.body.sku,
+        price: req.body.price,
+        weight: req.body.weight,
+        tags: 'test'
+      }
+  })
+  .then(function(response) {
+    res.redirect('/');
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
+
 });
 
 // Display Post
@@ -155,10 +190,15 @@ router.post("/signup", function(req, res, next) {
 
   });
 }, passport.authenticate("login", {
-  successRedirect: "/",
+  // Change successRedirect to admin page requiring store name and additional info
+  successRedirect: "/signup-info",
   failureRedirect: "/signup",
   failureFlash: true
 }));
+
+router.get("/signup-info", function(req, res) {
+  res.render("signup-info");
+});
 
 router.get("/users/:username", function(req, res, next) {
   User.findOne({ username: req.params.username }, function(err, user) {

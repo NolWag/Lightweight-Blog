@@ -1,6 +1,8 @@
-$mainFont: 'Raleway', sans-serif;
+$mainFont: 'Maven Pro', sans-serif;
 $secondFont: 'Roboto Slab', serif;
 
+
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro|Oxygen|Ubuntu+Condensed');
 /* Google Font Imports */
 
 $primary-color: #000;
@@ -32,6 +34,7 @@ $font-secondary: #000;
 
 body {
   margin: 0;
+  font-family: $mainFont;
 }
 
 .container {
@@ -109,6 +112,16 @@ body {
 
 /// END OF UTILITIES ////
 
+input {
+  border: 1px solid #b3b3b3;
+padding: .5em;
+text-transform: uppercase;
+font-family: $mainFont;
+letter-spacing: .02em;
+font-weight: bold;
+margin: .5em 0em;
+}
+
 a {
   text-decoration: none;
   outline: 0;
@@ -116,14 +129,12 @@ a {
 }
 
 body {
-  margin: 0 3em;
+  margin: 0em;
 }
 
 .main {
   margin: 0;
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
 }
 
 .logo {
@@ -134,20 +145,42 @@ body {
   color: #555;
 }
 
-.btn {
-  background-color: #eaeaea;
-  padding: 1em 2em;
-  border: #e0e0e0 solid 3px;
-  color: #000;
+.header {
+  background-color: red;
+}
 
+.nav__container {
+  width: 30%;
+  height: 100vh;
+}
+
+.nav__item {
+  padding: 2em;
+  border: solid 1px #eee;
+  font-size: 1.2em;
   &:hover {
-    background-color: #dedede;
+    background-color: #eee;
+    //transform: scale(1.02);
+    //transition: transform .2s;
   }
 }
 
-.nav--item {
-  font-family: $secondFont;
-  font-size: 1.2em;
+
+.btn {
+  background-color: red;
+  color: #fff;
+  border: none;
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+  }
+}
+
+.pContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
 }
 
 .admin--name {
@@ -184,8 +217,18 @@ body {
 }
 
 .product__container {
-  margin: 2em;
-  max-width: 250px;
+  margin: 0 1em;
+  height: 250px;
+  width: 250px;
+  border: 1px #e6e6e6 solid;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  &:hover {
+    border-color: #eee;
+    transform:scale(.98);
+    transition: transform .2s;
+  }
 }
 
 .product__title {
@@ -193,6 +236,8 @@ body {
   font-weight: bold;
   font-family: sans-serif;
   text-align: center;
+  font-family: $mainFont;
+
 }
 
 .add-product__btn {

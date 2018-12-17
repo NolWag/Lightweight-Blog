@@ -1,11 +1,26 @@
 <div class="main">
+  <div class="nav__container">
+    <div class="nav__item">
+      Add Product
+    </div>
+    <div class="nav__item">
+      Orders
+    </div>
+    <div class="nav__item">
+      Admin
+    </div>
+    <div class="nav__item">
+      Sign Out
+    </div>
+  </div>
+  <div class="pContainer">
 {{#each response}}
   <div class="product__container">
     <a href="/product/{{this.id}}">
+    <img class="post__img" src="{{image.src}}"/>
     <div class="product__title">
       {{title}}
     </div>
-    <img class="post__img" src="{{image.src}}"/>
   </a>
   </div>
 {{/each}}
@@ -14,4 +29,6 @@
   <p class="add-product__btn">+</p>
 </a>
 </div>
+</div>
+
 </div>

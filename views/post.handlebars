@@ -1,8 +1,9 @@
 <div class="post__container__single">
   <h1 class="title">Add Product</h1>
-<form class="edit__form" action="/post" method="POST">
+<form class="edit__form" action="/add-product" method="POST">
   <input class="edit__title" type="text" placeholder="Title" name="title"/>
   <input class="edit__title" type="text" placeholder="{{name}}" value="{{name}}" name="author" readonly="true"/>
+  <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
   <textarea class="edit__body" type="text" placeholder="Start Typing Here..." name="body"></textarea>
   <input class="edit__title" type="text" placeholder="SKU" name="SKU"/>
   <input class="edit__title" type="text" placeholder="Price" name="Price"/>
