@@ -1,24 +1,37 @@
 <div class="main">
+  <!--- NAV CONTAINER --->
   <div class="nav__container">
+    <!--- MENU --->
+
+
+    <a href="/add-product">
+      <div class="nav__item">
+        <span>Add Product</span><img src="/images/Box.png" class="nav__image" />
+      </div>
+    </a>
     <div class="nav__item">
-      Add Product
+      <span>Orders</span><img src="/images/Shopping-Basket.png" class="nav__image" />
     </div>
+    <a href="/edit">
+      <div class="nav__item">
+        <span>Admin</span><img src="/images/User.png" class="nav__image" />
+      </div>
+    </a>
     <div class="nav__item">
-      Orders
+      <span>Support</span><img src="/images/Comment.png" class="nav__image" />
     </div>
-    <div class="nav__item">
-      Admin
-    </div>
-    <div class="nav__item">
-      Sign Out
-    </div>
+    <a href="/logout">
+      <div class="nav__item">
+        <span>Sign Out</span><img src="/images/Arrow.png" class="nav__image" />
+      </div>
+   </a>
   </div>
   <div class="pContainer">
 {{#each response}}
   <div class="product__container">
     <a href="/product/{{this.id}}">
     <img class="post__img" src="{{image.src}}"/>
-    <div class="product__title">
+    <div class="product-title">
       {{title}}
     </div>
   </a>

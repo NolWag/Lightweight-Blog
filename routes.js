@@ -27,7 +27,7 @@ router.use(function(req, res, next) {
 });
 
 
-router.get("/", function(req, res, next) {
+router.get("/", ensureAuthenticated, function(req, res, next) {
 
   axios.get('https://' + API + '@insta-ecom.myshopify.com/admin/products.json/')
   .then(function(response) {
