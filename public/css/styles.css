@@ -18,7 +18,8 @@ body {
 
 .form {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  min-width: 30%; }
 
 .title {
   font-family: "Maven Pro", sans-serif;
@@ -59,7 +60,7 @@ body {
 
 /* Font Colors */
 .prim-color {
-  color: #000; }
+  color: #e34949; }
 
 .sec-color {
   color: #fff; }
@@ -97,7 +98,7 @@ body {
   font-family: "Maven Pro", sans-serif; }
 
 .header {
-  background-color: red; }
+  background-color: #e34949; }
 
 .product-title {
   margin-top: .8em;
@@ -121,19 +122,25 @@ body {
 .nav__image {
   width: 30px; }
 
+.signup-info__form {
+  width: 30%;
+  display: flex;
+  flex-direction: column; }
+
 .btn {
-  background-color: red;
+  background-color: #e34949;
   color: #fff;
-  border: 1px solid red; }
+  border: 1px solid #e34949; }
   .btn:hover {
     background-color: #fff;
-    color: red;
-    border: 1px solid #000; }
+    color: #e34949;
+    border: 1px solid #000;
+    transition: .2s; }
 
 .join-now {
   text-align: center;
   font-family: "Maven Pro", sans-serif;
-  background-color: red;
+  background-color: #e34949;
   color: #fff;
   padding: .45em;
   margin: 0em .5em; }

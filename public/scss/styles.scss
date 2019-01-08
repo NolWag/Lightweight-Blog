@@ -5,7 +5,7 @@ $secondFont: 'Montserrat', sans-serif;
  @import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900');
 /* Google Font Imports */
 
-$primary-color: #000;
+$primary-color: #e34949;
 $secondary-color: #fff;
 
 /* Type */
@@ -51,6 +51,7 @@ body {
 .form {
   display: flex;
   flex-direction: column;
+  min-width: 30%;
 }
 
 .title {
@@ -153,7 +154,7 @@ body {
 }
 
 .header {
-  background-color: red;
+  background-color: $primary-color;
 }
 
 .product-title {
@@ -185,22 +186,28 @@ body {
   width: 30px;
 }
 
+.signup-info__form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
 
 .btn {
-  background-color: red;
+  background-color: $primary-color;
   color: #fff;
-  border: 1px solid red;
+  border: 1px solid $primary-color;
   &:hover {
     background-color: #fff;
-    color: red;
+    color: $primary-color;
     border: 1px solid #000;
+    transition: .2s;
   }
 }
 
 .join-now {
   text-align: center;
   font-family: "Maven Pro", sans-serif;
-  background-color: red;
+  background-color: $primary-color;
   color: #fff;
   padding: .45em;
   margin: 0em .5em;

@@ -5,6 +5,12 @@ var axios = require("axios");
 var User = require("./models/user");
 var Post = require("./models/post");
 
+var Base64 = require('js-base64').Base64;
+
+var keyPub = process.env.PUBLISHABLE_KEY;
+var keySecret = process.env.SECRET_KEY;
+var Stripe = require('stripe')(keySecret);
+
 var router = express.Router();
 
 var API = '40cb532ba2293311d7e3464365c136c4:f8f45c4c9b4703c5e4362df210aa7230';
@@ -27,7 +33,7 @@ router.use(function(req, res, next) {
 });
 
 
-router.get("/", ensureAuthenticated, function(req, res, next) {
+router.get("/", function(req, res, next) {
 
   axios.get('https://' + API + '@insta-ecom.myshopify.com/admin/products.json/')
   .then(function(response) {
@@ -53,18 +59,8 @@ router.get('/add-product', /*ensureAuthenticated*/ function(req, res, next) {
 });
 
 router.post('/add-product', function(req, res, next) {
-  // new Post(
-  //   {
-  //     title: req.body.title,
-  //     author: req.body.author,
-  //     body: req.body.body,
-  //     sku: req.body.sku,
-  //     price: req.body.price,
-  //     weight: req.body.weight
-  //   }
-  // ).save();
-
-  axios.post('https://' + API + '@insta-ecom.myshopify.com/admin/products.json/',{
+   console.log(req.file);
+  axios.post('https://' + API + '@insta-ecom.myshopify.com/admin/products.json/', {
       product: {
         title: req.body.title,
         body_html: req.body.body,
@@ -196,8 +192,16 @@ router.post("/signup", function(req, res, next) {
   failureFlash: true
 }));
 
+
+// Sign-up STAGE 2
 router.get("/signup-info", function(req, res) {
   res.render("signup-info");
+
+});
+
+// Sign-up Payment
+router.get("/signup-payment", function(req, res) {
+  res.render("signup-payment", {keyPub});
 });
 
 router.get("/users/:username", function(req, res, next) {

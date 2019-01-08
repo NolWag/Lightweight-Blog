@@ -1,9 +1,9 @@
-<div class="post__container__single">
-<h1 class="title">Edit your profile</h1>
-<form class="edit__form" action="/edit" method="post">
-  <input class="edit__title" name="displayname" type="text" placeholder="Display name" value="{{name}}">
-  <textarea name="bio" class="edit__body" placeholder="Tell us about yourself!">{{bio}}</textarea>
-  <input name="store" type="text" placeholder="Store Name" value="{{store}}"/>
-  <input type="submit" value="Update" class="btn">
+<div class="container">
+<form class="form" action="/edit" method="post">
+  <p>Tell us a little more about your store.<br/>Your store description can be changed later.</p>
+  <textarea name="bio" class="edit__body" placeholder="Provide a short description of your store and what products you sell...">{{bio}}</textarea>
+  <p>Choose carefully, your store name <b>CANNOT</b> be changed.</p>
+  <input name="store" type="text" placeholder="Store Name" value="{{store}}" readonly/>
+  <input type="submit" value="Payment Information" class="btn">
 </form>
 </div>
