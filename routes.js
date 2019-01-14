@@ -5,7 +5,8 @@ var axios = require("axios");
 var User = require("./models/user");
 var Post = require("./models/post");
 
-var Base64 = require('js-base64').Base64;
+var multer = require('multer');
+var fs = require('fs');
 
 var keyPub = process.env.PUBLISHABLE_KEY;
 var keySecret = process.env.SECRET_KEY;
@@ -59,23 +60,23 @@ router.get('/add-product', /*ensureAuthenticated*/ function(req, res, next) {
 });
 
 router.post('/add-product', function(req, res, next) {
-   console.log(req.file);
-  axios.post('https://' + API + '@insta-ecom.myshopify.com/admin/products.json/', {
-      product: {
-        title: req.body.title,
-        body_html: req.body.body,
-        sku: req.body.sku,
-        price: req.body.price,
-        weight: req.body.weight,
-        tags: 'test'
-      }
-  })
-  .then(function(response) {
-    res.redirect('/');
-  })
-  .catch(function(error) {
-    console.log(error);
-  });
+
+  // axios.post('https://' + API + '@insta-ecom.myshopify.com/admin/products.json/', {
+  //     product: {
+  //       title: req.body.title,
+  //       body_html: req.body.body,
+  //       sku: req.body.sku,
+  //       price: req.body.price,
+  //       weight: req.body.weight,
+  //       tags: 'test'
+  //     }
+  // })
+  // .then(function(response) {
+  //   res.redirect('/');
+  // })
+  // .catch(function(error) {
+  //   console.log(error);
+  // });
 
 });
 

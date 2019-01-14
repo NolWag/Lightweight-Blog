@@ -1,12 +1,11 @@
 <div class="container">
   <h1 class="title">Add Product</h1>
-<form class="form" action="/add-product" method="POST">
-  <input type="text" placeholder="Title" name="title"/>
-  <input name="Image" type='file' onchange="viewImage(this)" accept="image/*" />
-  <img src="#" id="imageThumb">
+<form class="form dropzone" action="/add-product" method="POST" enctype="multipart/form-data">
+  <input type="file" name="displayImage" />
+  <!-- <input type="text" placeholder="Title" name="title"/>
   <textarea type="text" placeholder="Start Typing Here..." name="body"></textarea>
   <input type="text" placeholder="SKU" name="SKU"/>
   <input type="text" placeholder="Price" name="Price"/>
-  <input type="text" placeholder="Weight" name="Weight"/>
+  <input type="text" placeholder="Weight" name="Weight"/> --->
   <input class="btn" type="submit" value="Submit">
 </form>
