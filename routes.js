@@ -6,7 +6,6 @@ var User = require("./models/user");
 var Post = require("./models/post");
 
 var multer = require('multer');
-var fs = require('fs');
 
 var keyPub = process.env.PUBLISHABLE_KEY;
 var keySecret = process.env.SECRET_KEY;
@@ -32,6 +31,7 @@ router.use(function(req, res, next) {
   res.locals.infos = req.flash("info");
   next();
 });
+
 
 
 router.get("/", function(req, res, next) {
@@ -60,7 +60,7 @@ router.get('/add-product', /*ensureAuthenticated*/ function(req, res, next) {
 });
 
 router.post('/add-product', function(req, res, next) {
-
+  console.log(req.file) // to see what is returned to you
   // axios.post('https://' + API + '@insta-ecom.myshopify.com/admin/products.json/', {
   //     product: {
   //       title: req.body.title,
