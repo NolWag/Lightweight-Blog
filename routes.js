@@ -13,7 +13,7 @@ var Stripe = require('stripe')(keySecret);
 
 var router = express.Router();
 
-var API = '40cb532ba2293311d7e3464365c136c4:f8f45c4c9b4703c5e4362df210aa7230';
+
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
