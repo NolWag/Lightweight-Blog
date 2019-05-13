@@ -8,8 +8,6 @@ var flash = require('connect-flash');
 var passport = require('passport');
 var exphbs = require('express-handlebars');
 
-import './public/scss/styles.scss';
-
 var setUpPassport = require('./setuppassport');
 var routes = require('./routes');
 
@@ -24,7 +22,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(process.cwd(), '/public')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -43,6 +41,6 @@ app.use(passport.session());
 app.use(routes);
 
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function () {
   console.log('Server started on port ' + app.get('port'));
 });
